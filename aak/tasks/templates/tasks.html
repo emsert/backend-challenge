@@ -1,0 +1,31 @@
+<h1> TASKS: </h1>
+<form method = "POST" action ="/">
+    {% csrf_token %}
+
+    {{TaskForm.title}}
+
+    <input class = "btn" type = "submit" name = "Create Task">
+</form>
+
+{% for task in tasks %}
+<p> <u>Task: {{task}}</u> </p>
+<a href = "{% url 'update-task' task.id %}"> Update </a>
+or
+<a href = "{% url 'delete-task' task.id %}"> Delete </a>
+<p> Description: {{task.description}} </p>
+<p> Completion Status: {{task.completion_status}} </p>
+<p> Created Date: {{task.created}} </p>
+<p> Owner: {{task.owner}}<br /> <br /> </p>
+
+{% endfor %}
+
+
+
+
+
+
+<h1> LABELS: </h1>
+{% for label in labels %}
+<p> <u>Label: {{label}}</u> </p>
+<p> Owner: {{label.owner}} </p>
+{% endfor %}

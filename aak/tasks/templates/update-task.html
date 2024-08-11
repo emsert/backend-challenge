@@ -1,0 +1,8 @@
+<h1> UPDATE TASK: </h1>
+<form method = "POST" action ="/">
+    {% csrf_token %}
+
+    {{TaskForm}}
+
+    <input class = "btn" type = "submit" name = "Update Task">
+</form>
